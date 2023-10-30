@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Flex, Button, Input, Box, Space } from "@mantine/core";
 
 type ArrayState = number[];
 type SortHistoryState = number[][];
@@ -10,7 +8,6 @@ export default function Home() {
   const [input, setInput] = useState<ArrayState>([]);
   const [sortHistory, setSortHistory] = useState<SortHistoryState>([[]]);
   const [playing, setPlaying] = useState<Boolean>(false);
-  const [isHover, setIsHover] = useState<Boolean>(false);
   const [looping, setLooping] = useState<number>(0);
   const timeOutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -59,34 +56,26 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-200 flex flex-col justify-center items-center">
-      <div className="bg-white p-8 rounded-lg shadow-md">
-        <span className="text-center mb-4">
-          Type an array following the example. Separate with comma. Ex.: 3,2,1
-        </span>
-        <input
-          type="text"
-          className="w-full h-12 p-2 rounded-lg mb-4"
-          onChange={handleChange}
-        />
-        <button
-          className={`w-full h-16 rounded-lg bg-${isHover ? "gray" : "white"}`}
-          onClick={bubbleSort}
-          onMouseEnter={() => {
-            setIsHover(true);
-          }}
-          onMouseLeave={() => {
-            setIsHover(false);
-          }}
-        >
+    <Flex direction="column" justify="center" align="center" h="100vh">
+      <Box>
+        <Input.Wrapper label="Type an array following the example. Separate with comma.">
+          <Input type="text" onChange={handleChange} placeholder="Ex.: 3,2,1" />
+        </Input.Wrapper>
+        <Space h="md" />
+        <Button fullWidth onClick={bubbleSort}>
           Bubble Sort!
-        </button>
-      </div>
-      <div className="mt-8 text-white">
+        </Button>
+      </Box>
+      <Flex direction="row">
         {input.map((element, key) => (
-          <div key={key}>{element}</div>
+          <>
+            <Box key={key} size="xl" component="h3">
+              {element}
+            </Box>
+            <Space w="md" />
+          </>
         ))}
-      </div>
-    </main>
+      </Flex>
+    </Flex>
   );
 }
