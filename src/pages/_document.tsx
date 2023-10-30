@@ -8,7 +8,18 @@ export default function Document() {
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
         <title>Bubble Sort</title>
-        <meta property="og:title" content="Bubble Sort" key="Bubble Sort" />
+        <meta
+          name="description"
+          content="This is a page about Bubble Sort algorithm."
+        />
+        <meta property="og:title" content="Bubble Sort" />
+        <meta
+          property="og:description"
+          content="Learn about the Bubble Sort algorithm."
+        />
+        {/* <meta property="og:url" content="https://..." /> */}
+        <link rel="icon" href="/favicon.png" />
+        {/* <link rel="canonical" href="https://..." /> */}
       </Head>
       <body>
         <Main />
