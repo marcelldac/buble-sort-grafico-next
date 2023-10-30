@@ -59,20 +59,18 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="flex justify-center flex-col items-center mt-250">
-        <span className="flex justify-center bg-slate-50 font-mono text-center mb-10 p-25 w-250 h-100 rounded-3xl text-sm">
+    <main className="min-h-screen bg-gray-200 flex flex-col justify-center items-center">
+      <div className="bg-white p-8 rounded-lg shadow-md">
+        <span className="text-center mb-4">
           Type an array following the example. Separate with comma. Ex.: 3,2,1
         </span>
         <input
           type="text"
-          className="text-center border-none w-250 h-60 rounded-3xl mb-10"
+          className="w-full h-12 p-2 rounded-lg mb-4"
           onChange={handleChange}
         />
         <button
-          className="text-center border-none cursor-pointer w-250 h-70 rounded-3xl mb-10 @if($isHover) bg-gray @endif"
+          className={`w-full h-16 rounded-lg bg-${isHover ? "gray" : "white"}`}
           onClick={bubbleSort}
           onMouseEnter={() => {
             setIsHover(true);
@@ -84,11 +82,9 @@ export default function Home() {
           Bubble Sort!
         </button>
       </div>
-      <div className="flex text-center mt-100">
+      <div className="mt-8 text-white">
         {input.map((element, key) => (
-          <div key={key} className="text-slate-50 mx-5">
-            {element}
-          </div>
+          <div key={key}>{element}</div>
         ))}
       </div>
     </main>
