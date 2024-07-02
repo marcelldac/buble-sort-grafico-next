@@ -104,7 +104,7 @@ export default function Home() {
         aria-label="Github"
         bg="black"
         component={Link}
-        href="https://github.com/marcelldac?tab=repositories"
+        href="https://github.com/marcelldac/graphic-bubble-sort"
         target="_blank"
       >
         <AiFillGithub />
